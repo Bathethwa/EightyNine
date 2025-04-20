@@ -2,14 +2,19 @@ package com.eightynine.eightyninebackend.service;
 
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.security.Keys;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
+
 
 import java.security.Key;
 import java.util.Date;
 
 @Service
 public class JwtService {
-    private static final String SECRET_KEY = "your-256-bit-secret-key-which-should-be-long"; // use env in real apps
+    @Value("${jwt.secret}")
+    private  String SECRET_KEY ; // use env in real apps
     private static final long EXPIRATION_TIME = 86400000; // 1 day
 
     private Key getSignInKey() {
@@ -34,7 +39,7 @@ public class JwtService {
                 .getSubject();
     }
 
-    public boolean isTokenValid(String token, String userDetails) {
+    public boolean isTokenValid(String token, UserDetails userDetails) {
         final String username = extractUsername(token);
         return (username.equals(userDetails)) && !isTokenExpired(token);
     }

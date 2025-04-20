@@ -20,12 +20,7 @@ private UserRepository userRepository;
 
 @Override
 public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-    Long i = (long) 4;
-
-    
-    Optional<User> j = userRepository.findById(i);
-    System.out.println(j);
-    
+  
     User user = userRepository.findByEmail(email)
         .orElseThrow(() -> new UsernameNotFoundException("User not found"));
     return new CustomerUserDetails(user);
