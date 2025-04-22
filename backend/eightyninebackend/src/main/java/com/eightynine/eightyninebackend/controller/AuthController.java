@@ -1,9 +1,5 @@
 package com.eightynine.eightyninebackend.controller;
 
-
-
-
-import java.security.Key;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.eightynine.eightyninebackend.dto.UserDTO;
-import com.eightynine.eightyninebackend.repository.UserRepository;
 import com.eightynine.eightyninebackend.service.JwtService;
 
 @RestController
@@ -28,15 +23,9 @@ public class AuthController {
 
     @Autowired
     private AuthenticationManager authManager;
-
-    private UserRepository repository;
-
     private JwtService jwtService;
 
-
-
-    public AuthController(UserRepository repository,JwtService jwtService) {
-        this.repository = repository;
+    public AuthController(JwtService jwtService) {
         this.jwtService = jwtService;
     }
 
