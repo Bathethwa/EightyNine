@@ -1,0 +1,92 @@
+##################################
+# Backend - Maven / Spring Boot #
+##################################
+
+# Maven
+target/
+!.mvn/wrapper/maven-wrapper.jar
+**/target/
+
+# Java class / build
+*.class
+*.jar
+*.war
+*.ear
+
+# Logs
+*.log
+logs/
+
+# Environment secrets
+.env
+ms.env
+
+# IDEs
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings/
+.springBeans
+.sts4-cache
+
+# IntelliJ IDEA
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# NetBeans
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+**/build/
+
+# VS Code
+.vscode/
+
+#########################
+# Frontend - Angular    #
+#########################
+
+# Angular build artifacts
+/dist/
+/tmp/
+/out-tsc/
+/.angular/
+/coverage/
+/testem.log
+
+# Node modules
+/node_modules/
+/yarn-error.log
+/npm-debug.log
+
+# Editor configs
+.idea/
+/.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.sublime-workspace
+*.sublime-project
+*.code-workspace
+.c9/
+
+# OS / system files
+.DS_Store
+Thumbs.db
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Misc
+/libpeerconnection.log
+/connect.lock
+.sass-cache/
+.typings
+.history/
