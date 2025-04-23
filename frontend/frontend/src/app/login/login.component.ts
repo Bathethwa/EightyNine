@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Router} from '@angular/router';
+import {Roles} from '../models/roles.enum';
+
 import {AuthenticationServiceService} from '../services/authentication.service.service';
 
 @Component({
@@ -17,9 +19,16 @@ constructor(private authService: AuthenticationServiceService, private router:Ro
 
 onSubmit():void{
   this.authService.login(this.email,this.password).subscribe({
-     next:()=>{
+    
+     next:(user)=>{
       console.log('Login successful!');
-      this.router.navigate(['/home']);
+      if(user.role == Roles.ADMIN )
+      {
+        this.router.navigate(['/dashboard']);
+      }else{
+        this.router.navigate(['/home']);
+      }
+
      },
      error:err =>{
         this.errorMessage = 'Invalid email or password';

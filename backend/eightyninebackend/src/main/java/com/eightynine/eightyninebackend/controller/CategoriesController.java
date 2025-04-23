@@ -46,7 +46,6 @@ public class CategoriesController {
 @PostMapping("/createcategory")
  public Category create(@RequestBody Category category){
     return repository.save(category);
-
  }
 
  @PutMapping("updateCategory/{id}")

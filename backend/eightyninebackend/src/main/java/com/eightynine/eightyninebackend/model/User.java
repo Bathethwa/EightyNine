@@ -1,5 +1,7 @@
 package com.eightynine.eightyninebackend.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -21,7 +23,7 @@ private String name;
 
 @Column(unique = true)
 private String email;
-
+@JsonIgnore
 private String password_hash;
 
 @Enumerated(EnumType.STRING)

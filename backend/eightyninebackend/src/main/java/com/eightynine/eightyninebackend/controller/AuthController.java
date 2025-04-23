@@ -1,6 +1,7 @@
 package com.eightynine.eightyninebackend.controller;
 
 import java.util.Map;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.eightynine.eightyninebackend.dto.UserDTO;
+import com.eightynine.eightyninebackend.model.User;
+import com.eightynine.eightyninebackend.repository.UserRepository;
 import com.eightynine.eightyninebackend.service.JwtService;
 
 @RestController
@@ -23,10 +26,13 @@ public class AuthController {
 
     @Autowired
     private AuthenticationManager authManager;
+    @Autowired
     private JwtService jwtService;
 
-    public AuthController(JwtService jwtService) {
-        this.jwtService = jwtService;
+    private UserRepository repository;
+
+    public AuthController(UserRepository repository ) {
+        this.repository = repository;
     }
 
     @PostMapping("/login")
@@ -39,8 +45,10 @@ public class AuthController {
             );
             System.out.println("Authentication successful: " + auth.getName());
             String jwt = jwtService.generateToken(request.getEmail());
-          
-            return ResponseEntity.ok(Map.of("token",jwt) );
+            Optional<User> user = this.repository.findByEmail(request.getEmail());
+                         
+            return ResponseEntity.ok(Map.of("token",jwt,
+                                            "user",user) );
         } catch (Exception e) {
            e.printStackTrace();
            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid credentials");

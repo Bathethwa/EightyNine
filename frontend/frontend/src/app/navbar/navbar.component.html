@@ -67,7 +67,13 @@
 
       <!-- Right nav: login + cart -->
       <div class="flex space-x-6 items-center">
-        <a href="/login" class="text-gray-700 hover:text-black text-sm font-medium">Login</a>
+        <ng-container  *ngIf="user; else loginbtn">
+        <span #username>Welcome {{user.name}}</span>
+        </ng-container>
+        <ng-template #loginbtn >
+          <a href="/login" class="text-gray-700 hover:text-black text-sm font-medium">Login</a>
+        </ng-template>
+        
         <a href="#" class="text-gray-700 hover:text-black">
           <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
