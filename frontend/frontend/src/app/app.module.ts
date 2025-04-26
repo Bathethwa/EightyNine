@@ -6,6 +6,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
@@ -16,6 +17,8 @@ import { LoginComponent } from './login/login.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { ProductsComponent } from './admin/products/products.component';
+import { CategoryDialogComponent } from './admin/category-dialog/category-dialog.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,9 @@ import { NavbarComponent } from './navbar/navbar.component';
     LoginComponent,
     HomepageComponent,
     DashboardComponent,
-    NavbarComponent
+    NavbarComponent,
+    ProductsComponent,
+    CategoryDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -38,6 +43,7 @@ import { NavbarComponent } from './navbar/navbar.component';
     MatFormFieldModule,
     MatCardModule,
     MatButtonModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

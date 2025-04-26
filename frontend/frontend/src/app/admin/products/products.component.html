@@ -1,0 +1,30 @@
+<div class="p-6">
+    <h2 class="text-xl font-bold mb-4">Products Dashboard</h2>
+    <table class="min-w-full bg-white border">
+      <thead>
+        <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
+          <th class="py-3 px-6 text-left">Name</th>
+          <th class="py-3 px-6 text-left">Description</th>
+          <th class="py-3 px-6 text-left">Price</th>
+          <th class="py-3 px-6 text-left">Stock</th>
+          <th class="py-3 px-6 text-center">Edit</th>
+          <th class="py-3 px-6 text-center">Delete</th>
+        </tr>
+      </thead>
+      <tbody class="text-gray-600 text-sm font-light">
+        <tr *ngFor="let product of products" class="border-b border-gray-200 hover:bg-gray-100">
+          <td class="py-3 px-6 text-left">{{ product.name }}</td>
+          <td class="py-3 px-6 text-left">{{ product.description }}</td>
+          <td class="py-3 px-6 text-left">{{ product.price }}</td>
+          <td class="py-3 px-6 text-left">{{ product.stock }}</td>
+          <td class="py-3 px-6 text-center">
+            <button class="bg-slate-300 text-white px-3 py-1 rounded hover:bg-red-600">Edit</button>
+          </td>
+          <td class="py-3 px-6 text-center">
+            <button class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
