@@ -19,6 +19,7 @@ import { DashboardComponent } from './admin/dashboard/dashboard.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ProductsComponent } from './admin/products/products.component';
 import { CategoryDialogComponent } from './admin/category-dialog/category-dialog.component';
+import { CategoryPageComponent } from './category-page/category-page.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { CategoryDialogComponent } from './admin/category-dialog/category-dialog
     DashboardComponent,
     NavbarComponent,
     ProductsComponent,
-    CategoryDialogComponent
+    CategoryDialogComponent,
+    CategoryPageComponent
   ],
   imports: [
     BrowserModule,

@@ -9,11 +9,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.eightynine.eightyninebackend.model.Product;
 import com.eightynine.eightyninebackend.repository.ProductsRepository;
+import com.eightynine.eightyninebackend.service.ProductService;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 
 @RestController
@@ -24,6 +28,13 @@ public class ProductsController {
 @Autowired
 private ProductsRepository repository;
 
+private final ProductService productService;
+
+
+public ProductsController(ProductService productService){
+this.productService = productService;
+}
+
 
 @GetMapping("/getAllProducts")
 public List<Product>getAll(){
@@ -33,6 +44,23 @@ public List<Product>getAll(){
 @GetMapping("/{id}")
 public ResponseEntity<Product> getProductByID(@PathVariable Long id){
 return repository.findById(id).map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
+}
+
+
+@GetMapping("/Category/{categoryName}")
+public List<Product> getProductsByCategoryName(@PathVariable String categoryName){
+
+    return repository.findByCategoryName(categoryName);
+}
+
+@GetMapping("/by-categories")
+public List<Product> getProductsByCategories(@RequestParam List<String> categories) {
+    return productService.getProductsByCategories(categories);
+}
+
+
+public String getMethodName(@RequestParam String param) {
+    return new String();
 }
 
 @PostMapping("/createProduct")

@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Product } from '../models/product.model';
@@ -22,6 +22,21 @@ export class ProductsServiceService {
     return this.http.post<any>(`${this.baseUrl}/createProduct`, product);
   }
 
+  getProductsByCategoryName(name:string):Observable<Product[]>{
+    return this.http.get<Product[]>(`${this.baseUrl}/Category/${{name}}`);
+  }
+
+  getProductsByCategories(categories:string[]):Observable<Product[]>{
+    let params = new HttpParams();
+
+    categories.forEach(category=>{
+      params = params.append('categories',category);
+    })
+    return this.http.get<Product[]>(`${this.baseUrl}/products/by-categories`,{params});
+  }
+
+
+  
   updateProduct(id:number, updatedProduct:Product):Observable<Product>{
     return this.http.put<Product>(`${this.baseUrl}/updateProduct/${id}`,updatedProduct);
   }

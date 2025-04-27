@@ -1,87 +1,186 @@
-<nav class="bg-white border-b border-gray-200">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex justify-between h-16 items-center">
+<div class="bg-white">
+  <header class="relative bg-white">
+    <nav aria-label="Top" class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="border-b border-gray-200">
+        <div class="flex h-16 items-center">
+          <div class="ml-4 flex lg:ml-0">
+            <a href="#">
+              <span class="sr-only">EightyNine</span>
+              <img src="assets/Logos/mainlogo.jpeg" alt="EightyNine Logo" class="h-10 w-auto" />
+            </a>
+          </div>
 
-      <!-- Logo aligned to left -->
-      <div class="flex-shrink-0 text-2xl font-bold text-gray-800" >
-        <a href="#">
-          <img src="assets/Logos/mainlogo.jpeg" alt="EightyNine Logo" class="h-10 w-auto" />
-        </a>
-      </div>
+          <div class="hidden lg:ml-8 lg:block lg:self-stretch">
+            <div class="flex h-full space-x-8">
+              <div class="flex">
+                <div class="relative flex">
+                  <button
+                      type="button"
+                      class="relative z-10 -mb-px flex items-center border-b-2 border-transparent pt-px text-sm font-medium text-gray-700 transition-colors duration-200 ease-out hover:text-gray-800"
+                      [attr.aria-expanded]="womenDropdownOpen"
+                      (click)="toggleWomenDropdown()"
+                       #womenButton
+                        >
+                       Women
+                      </button>
+                </div>
 
-      <!-- Left nav: links + dropdowns -->
-      <div class="flex space-x-8 items-center">
-        
-        <!-- WOMEN dropdown -->
-        <div class="relative group">
-          <button class="text-gray-700 hover:text-black text-sm font-medium inline-flex items-center">
-            Women
-            <svg class="ml-1 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M19 9l-7 7-7-7" />
-            </svg>
-          </button>
+                <div
+                  class="absolute inset-x-0 top-full text-sm text-gray-500"
+                  *ngIf="womenDropdownOpen"
+                  #womenDropdown
+                >
+                  <div class="absolute inset-0 top-1/2 bg-white shadow-sm" aria-hidden="true"></div>
+                  <div class="relative bg-white">
+                    <div class="mx-auto max-w-7xl px-8">
+                      <div class="grid grid-cols-3 gap-x-8 gap-y-10 py-16">
+                        <div>
+                          <p id="Clothing-heading" class="font-medium text-gray-900">Clothing</p>
+                          <ul role="list" aria-labelledby="Clothing-heading" class="mt-6 space-y-6 sm:mt-4 sm:space-y-4">
+                            <li class="flex"><a href="#" class="hover:text-gray-800">Tops</a></li>
+                            <li class="flex"><a href="#" class="hover:text-gray-800">Dresses</a></li>
+                            <li class="flex"><a href="#" class="hover:text-gray-800">Pants</a></li>
+                            <li class="flex"><a href="#" class="hover:text-gray-800">Denim</a></li>
+                            <li class="flex"><a href="#" class="hover:text-gray-800">Sweaters</a></li>
+                            <li class="flex"><a [routerLink]="['/category', 'shirts']"class="hover:text-gray-800">T-Shirts</a></li>
+                            <li class="flex"><a [routerLink]="['/category', 'hoodies']" class="hover:text-gray-800">Hoodies</a></li>
+                            <li class="flex"><a href="#" class="hover:text-gray-800">Activewear</a></li>
+                            <li class="flex"><a href="#" class="hover:text-gray-800">Browse All</a></li>
+                          </ul>
+                        </div>
+                        <div>
+                          <p id="Accessories-heading" class="font-medium text-gray-900">Accessories</p>
+                          <ul role="list" aria-labelledby="Accessories-heading" class="mt-6 space-y-6 sm:mt-4 sm:space-y-4">
+                            <li class="flex"><a href="#" class="hover:text-gray-800">Watches</a></li>
+                            <li class="flex"><a href="#" class="hover:text-gray-800">Wallets</a></li>
+                            <li class="flex"><a href="#" class="hover:text-gray-800">Bags</a></li>
+                            <li class="flex"><a href="#" class="hover:text-gray-800">Sunglasses</a></li>
+                            <li class="flex"><a href="#" class="hover:text-gray-800">Hats</a></li>
+                            <li class="flex"><a href="#" class="hover:text-gray-800">Belts</a></li>
+                          </ul>
+                        </div>
+                        <div>
+                          <p id="Brands-heading" class="font-medium text-gray-900">Brands</p>
+                          <ul role="list" aria-labelledby="Brands-heading" class="mt-6 space-y-6 sm:mt-4 sm:space-y-4">
+                            <li class="flex"><a href="#" class="hover:text-gray-800">Full Nelson</a></li>
+                            <li class="flex"><a href="#" class="hover:text-gray-800">My Way</a></li>
+                            <li class="flex"><a href="#" class="hover:text-gray-800">Re-Arranged</a></li>
+                            <li class="flex"><a href="#" class="hover:text-gray-800">Counterfeit</a></li>
+                            <li class="flex"><a href="#" class="hover:text-gray-800">Significant Other</a></li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="flex">
+                <div class="relative flex">
+                  <button
+                  type="button"
+                  class="relative z-10 -mb-px flex items-center border-b-2 border-transparent pt-px text-sm font-medium text-gray-700 transition-colors duration-200 ease-out hover:text-gray-800"
+                  [attr.aria-expanded]="menDropdownOpen"
+                  (click)="toggleMenDropdown()"
+                  #menButton
+                >
+                  Men
+                </button>
+                </div>
 
-          <!-- Dropdown -->
-          <div class="absolute left-0 mt-2 w-56 bg-white border border-gray-200 rounded-md shadow-lg opacity-0 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-200 translate-y-2 pointer-events-none group-hover:pointer-events-auto z-50">
-            <div class="px-4 py-2 text-xs font-semibold text-gray-500 uppercase">Clothing</div>
-            <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Tops</a>
-            <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Dresses</a>
-            <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Pants</a>
-            <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Denim</a>
-            <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Sweaters</a>
-            <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">T-Shirts</a>
-            <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Jackets</a>
-            <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Activewear</a>
-            <a href="#" class="block px-4 py-2 text-sm font-medium text-indigo-600 hover:bg-gray-50">Browse All</a>
+                <div
+                  class="absolute inset-x-0 top-full text-sm text-gray-500"
+                  *ngIf="menDropdownOpen"
+                  #menDropdown
+                >
+                  <div class="absolute inset-0 top-1/2 bg-white shadow-sm" aria-hidden="true"></div>
+                  <div class="relative bg-white">
+                    <div class="mx-auto max-w-7xl px-8">
+                      <div class="grid grid-cols-3 gap-x-8 gap-y-10 py-16">
+                        <div>
+                          <p id="Clothing-heading" class="font-medium text-gray-900">Clothing</p>
+                          <ul role="list" aria-labelledby="Clothing-heading" class="mt-6 space-y-6 sm:mt-4 sm:space-y-4">
+                            <li class="flex"><a href="#" class="hover:text-gray-800">Tops</a></li>
+                            <li class="flex"><a href="#" class="hover:text-gray-800">Pants</a></li>
+                            <li class="flex"><a href="#" class="hover:text-gray-800">Sweaters</a></li>
+                            <li class="flex"><a href="#" class="hover:text-gray-800">T-Shirts</a></li>
+                            <li class="flex"><a href="#" class="hover:text-gray-800">Hoodies</a></li>
+                            <li class="flex"><a href="#" class="hover:text-gray-800">Activewear</a></li>
+                            <li class="flex"><a href="#" class="hover:text-gray-800">Browse All</a></li>
+                          </ul>
+                        </div>
+                        <div>
+                          <p id="Accessories-heading" class="font-medium text-gray-900">Accessories</p>
+                          <ul role="list" aria-labelledby="Accessories-heading" class="mt-6 space-y-6 sm:mt-4 sm:space-y-4">
+                            <li class="flex"><a href="#" class="hover:text-gray-800">Watches</a></li>
+                            <li class="flex"><a href="#" class="hover:text-gray-800">Wallets</a></li>
+                            <li class="flex"><a href="#" class="hover:text-gray-800">Bags</a></li>
+                            <li class="flex"><a href="#" class="hover:text-gray-800">Sunglasses</a></li>
+                            <li class="flex"><a href="#" class="hover:text-gray-800">Hats</a></li>
+                            <li class="flex"><a href="#" class="hover:text-gray-800">Belts</a></li>
+                          </ul>
+                        </div>
+                        <div>
+                          <p id="Brands-heading" class="font-medium text-gray-900">Brands</p>
+                          <ul role="list" aria-labelledby="Brands-heading" class="mt-6 space-y-6 sm:mt-4 sm:space-y-4">
+                            <li class="flex"><a href="#" class="hover:text-gray-800">Re-Arranged</a></li>
+                            <li class="flex"><a href="#" class="hover:text-gray-800">Counterfeit</a></li>
+                            <li class="flex"><a href="#" class="hover:text-gray-800">Full Nelson</a></li>
+                            <li class="flex"><a href="#" class="hover:text-gray-800">My Way</a></li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <a href="#" class="flex items-center text-sm font-medium text-gray-700 hover:text-gray-800">About Us</a>
+              <a href="#" class="flex items-center text-sm font-medium text-gray-700 hover:text-gray-800">Stores</a>
+            </div>
+          </div>
+
+          <div class="ml-auto flex items-center">
+            <div class="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
+              <ng-container  *ngIf="user; else loginbtn">
+                <span #username>Welcome {{user.name}}</span>
+              </ng-container>
+              <ng-template #loginbtn>
+                <a href="/login" class="text-sm font-medium text-gray-700 hover:text-gray-800">Sign in</a>
+                <span class="h-6 w-px bg-gray-200" aria-hidden="true"></span>
+                <a href="#" class="text-sm font-medium text-gray-700 hover:text-gray-800">Create account</a>
+              </ng-template>
+             
+            </div>
+
+            <div class="hidden lg:ml-8 lg:flex">
+              <a href="#" class="flex items-center text-gray-700 hover:text-gray-800">
+                <img src="https://tailwindcss.com/plus-assets/img/flags/flag-canada.svg" alt="" class="block h-auto w-5 shrink-0">
+                <span class="ml-3 block text-sm font-medium">CAD</span>
+                <span class="sr-only">, change currency</span>
+              </a>
+            </div>
+
+            <div class="flex lg:ml-6">
+              <a href="#" class="p-2 text-gray-400 hover:text-gray-500">
+                <span class="sr-only">Search</span>
+                <svg class="size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                </svg>
+              </a>
+            </div>
+
+            <div class="ml-4 flow-root lg:ml-6">
+              <a href="#" class="group -m-2 flex items-center p-2">
+                <svg class="size-6 shrink-0 text-gray-400 group-hover:text-gray-500" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
+                </svg>
+                <span class="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">0</span>
+                <span class="sr-only">items in cart, view bag</span>
+              </a>
+            </div>
           </div>
         </div>
-
-        <!-- MEN dropdown -->
-        <div class="relative group">
-          <button class="text-gray-700 hover:text-black text-sm font-medium inline-flex items-center">
-            Men
-            <svg class="ml-1 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M19 9l-7 7-7-7" />
-            </svg>
-          </button>
-
-          <!-- Dropdown -->
-          <div class="absolute left-0 mt-2 w-56 bg-white border border-gray-200 rounded-md shadow-lg opacity-0 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-200 translate-y-2 pointer-events-none group-hover:pointer-events-auto z-50">
-            <div class="px-4 py-2 text-xs font-semibold text-gray-500 uppercase">Clothing</div>
-            <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Tops</a>
-            <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Pants</a>
-            <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Sweaters</a>
-            <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">T-Shirts</a>
-            <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Jackets</a>
-            <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Activewear</a>
-            <a href="#" class="block px-4 py-2 text-sm font-medium text-indigo-600 hover:bg-gray-50">Browse All</a>
-          </div>
-        </div>
-
-        <!-- Static Links -->
-        <a href="#" class="text-gray-700 hover:text-black text-sm font-medium">About</a>
-        <a href="#" class="text-gray-700 hover:text-black text-sm font-medium">Contact</a>
       </div>
-
-      <!-- Right nav: login + cart -->
-      <div class="flex space-x-6 items-center">
-        <ng-container  *ngIf="user; else loginbtn">
-        <span #username>Welcome {{user.name}}</span>
-        </ng-container>
-        <ng-template #loginbtn >
-          <a href="/login" class="text-gray-700 hover:text-black text-sm font-medium">Login</a>
-        </ng-template>
-        
-        <a href="#" class="text-gray-700 hover:text-black">
-          <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2 9m5-9v9m4-9v9m4-9l2 9" />
-          </svg>
-        </a>
-      </div>
-
-    </div>
-  </div>
-</nav>
+    </nav>
+  </header>
+</div>

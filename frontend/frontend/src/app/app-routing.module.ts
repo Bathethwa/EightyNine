@@ -6,13 +6,14 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
 import { ProductsComponent } from './admin/products/products.component';
+import { CategoryPageComponent } from './category-page/category-page.component';
 const routes: Routes = [
   { path: 'categories', component: AdminCategoriesComponent },
   {path: "home", component:HomepageComponent},
   {path:"login",component:LoginComponent},
   {path:"dashboard",component:DashboardComponent},
   {path:"products",component:ProductsComponent},
-
+  {path:"category/:categoryName",component:CategoryPageComponent},
 ];
 @NgModule({
   declarations: [],
