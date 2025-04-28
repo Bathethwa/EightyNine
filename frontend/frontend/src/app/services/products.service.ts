@@ -23,7 +23,7 @@ export class ProductsServiceService {
   }
 
   getProductsByCategoryName(name:string):Observable<Product[]>{
-    return this.http.get<Product[]>(`${this.baseUrl}/Category/${{name}}`);
+    return this.http.get<Product[]>(`${this.baseUrl}/Category/${name}`);
   }
 
   getProductsByCategories(categories:string[]):Observable<Product[]>{

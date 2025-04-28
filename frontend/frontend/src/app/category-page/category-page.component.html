@@ -1,1 +1,20 @@
-<P>Shirts page</P>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
+  <div *ngFor="let product of products" class="group relative rounded shadow-lg p-4 bg-white overflow-hidden">
+    
+    <!-- Product Images (Carousel or Thumbnail Grid) -->
+    <div class="group relative rounded shadow-lg p-4 bg-white overflow-hidden">
+      <!-- Product Images Carousel (on hover) -->
+      <div class="product-images group-hover:flex">
+        <div *ngFor="let image of product.images" class="w-full h-full flex-shrink-0">
+          <img [src]="image.image_url" alt="Product image" class="w-full h-full object-cover">
+        </div>
+      </div>
+
+
+    <!-- Product Info -->
+    <h2 class="text-xl font-semibold mb-2">{{ product.name }}</h2>
+    <p class="text-gray-600 mb-4">{{ product.description }}</p>
+    <div class="text-lg font-bold mb-4">{{ product.price | currency:'R' }}</div>
+    <button *ngIf="product" [routerLink]="['/viewProduct', product.id]" mat-raised-button color="primary">View Product</button>
+  </div>
+</div>

@@ -20,6 +20,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { ProductsComponent } from './admin/products/products.component';
 import { CategoryDialogComponent } from './admin/category-dialog/category-dialog.component';
 import { CategoryPageComponent } from './category-page/category-page.component';
+import { SpinnerComponent } from './spinner/spinner.component';
+import { ViewProductComponent } from './view-product/view-product.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { CategoryPageComponent } from './category-page/category-page.component';
     NavbarComponent,
     ProductsComponent,
     CategoryDialogComponent,
-    CategoryPageComponent
+    CategoryPageComponent,
+    SpinnerComponent,
+    ViewProductComponent
   ],
   imports: [
     BrowserModule,

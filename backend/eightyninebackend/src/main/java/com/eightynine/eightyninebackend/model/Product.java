@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Set;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import jakarta.persistence.*;
 
@@ -15,8 +16,8 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name ="product_id")
-
-    private Long product_id;
+    @JsonProperty("id")
+    private long product_id;
     private String name;
     private String description;
     private double price;
@@ -36,6 +37,13 @@ inverseJoinColumns = @JoinColumn(name = "category_id")
 )
 private Set<Category> categories = new HashSet<>();
 
+
+    public long getProduct_id() {
+        return product_id;
+    }
+    public void setProduct_id(long product_id) {
+        this.product_id = product_id;
+    }
     public String getName() {
         return name;
     }
@@ -52,9 +60,7 @@ private Set<Category> categories = new HashSet<>();
         this.categories = categories;
     }
 
-    public void setProduct_id(Long product_id) {
-        this.product_id = product_id;
-    }
+
     public void setName(String name) {
         this.name = name;
     }

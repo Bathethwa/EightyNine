@@ -17,9 +17,11 @@ export class NavbarComponent {
 
    ngOnInit(): void{
 
-    this.user = this.authService.getUser();
+   
    }
 
+  
+  
   
 
   womenDropdownOpen = false;
