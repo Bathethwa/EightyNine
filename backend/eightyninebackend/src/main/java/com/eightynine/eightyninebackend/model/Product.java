@@ -38,6 +38,10 @@ inverseJoinColumns = @JoinColumn(name = "category_id")
 private Set<Category> categories = new HashSet<>();
 
 
+
+
+
+
     public long getProduct_id() {
         return product_id;
     }

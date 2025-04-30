@@ -26,7 +26,7 @@ public class Product_Image {
     @JoinColumn(name = "product_id")
     private Product product;
 
-
+        
 
     public Long getId() {
         return id;
