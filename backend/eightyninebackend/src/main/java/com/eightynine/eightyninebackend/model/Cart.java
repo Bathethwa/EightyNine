@@ -10,6 +10,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
@@ -22,9 +23,10 @@ public class Cart {
 private long id;
 private LocalDateTime created_at;
 private LocalDateTime updated_at;
-private boolean is_checked_out;
+@Column(name = "is_checked_out")
+private boolean isCheckedOut;
 
-@OneToMany()
+@ManyToOne
 @JoinColumn(name="user_id")
 private User user;
 
@@ -51,10 +53,10 @@ public void setUpdated_at(LocalDateTime updated_at) {
     this.updated_at = updated_at;
 }
 public boolean getIs_checked_out() {
-    return is_checked_out;
+    return isCheckedOut;
 }
 public void setIs_checked_out(boolean is_checked_out) {
-    this.is_checked_out = is_checked_out;
+    this.isCheckedOut = is_checked_out;
 }
 
 public List<CartItems> getCartItems() {

@@ -1,5 +1,7 @@
 package com.eightynine.eightyninebackend.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -27,9 +29,16 @@ public class Address {
 
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "user_id",referencedColumnName = "user_id")
+    @JsonIgnore
     private User user;
     
+    
+
+    public Address() {}
+
+    
+
 
     public User getUser() {
         return user;

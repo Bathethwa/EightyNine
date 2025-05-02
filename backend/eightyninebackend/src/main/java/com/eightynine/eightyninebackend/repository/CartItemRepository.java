@@ -10,9 +10,9 @@ import com.eightynine.eightyninebackend.model.CartItems;
 public interface CartItemRepository extends JpaRepository<CartItems,Long> {
 
     //Find all items in a users's active cart
-    @Query("SELECT ci FROM Cartems ci"+
+    @Query("SELECT ci FROM CartItems ci "+
            "JOIN ci.cart c " +
-           "JOIN ci.product p"+
+           "JOIN ci.product p "+
            "WHERE c.user.id= :userId AND c.isCheckedOut = false")
            List<CartItems> findItemsInActiveCartByUserId(@Param("userId") long userId);
            
