@@ -8,6 +8,7 @@ import { DashboardComponent } from './admin/dashboard/dashboard.component';
 import { ProductsComponent } from './admin/products/products.component';
 import { CategoryPageComponent } from './category-page/category-page.component';
 import { ViewProductComponent } from './view-product/view-product.component';
+import { CartComponent } from './cart/cart.component'; 
 const routes: Routes = [
   { path: 'categories', component: AdminCategoriesComponent },
   {path: "home", component:HomepageComponent},
@@ -16,6 +17,7 @@ const routes: Routes = [
   {path:"products",component:ProductsComponent},
   {path:"category/:categoryName",component:CategoryPageComponent},
   {path:"viewProduct/:id",component:ViewProductComponent},
+  {path:"Cart/:id",component:CartComponent},
 ];
 @NgModule({
   declarations: [],

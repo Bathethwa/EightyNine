@@ -7,9 +7,9 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.eightynine.eightyninebackend.model.Cart;
 import com.eightynine.eightyninebackend.model.CartItems;
+import com.eightynine.eightyninebackend.model.CartResponse;
 import com.eightynine.eightyninebackend.service.CartService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -29,11 +29,12 @@ public CartController( CartService cartService) {
 }
 
 
-@GetMapping("/getCart/{id}")
-public Cart getOrCreatCart(@PathVariable("id") Long userId){
-return this.cartService.getOrCreateActiveCart(userId);
+@GetMapping("/getCart")
+public Cart getOrCreatCart(@RequestParam Long userId){
+Cart cart = this.cartService.getOrCreateActiveCart(userId);
+cart.setCartItems(this.cartService.viewCart(userId));
+return cart;
 }
-
 
 @GetMapping("/getCartItems")
 public List<CartItems> getCartItems(@RequestParam Long userId) {

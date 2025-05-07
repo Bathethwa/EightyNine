@@ -22,6 +22,7 @@ import { CategoryDialogComponent } from './admin/category-dialog/category-dialog
 import { CategoryPageComponent } from './category-page/category-page.component';
 import { SpinnerComponent } from './spinner/spinner.component';
 import { ViewProductComponent } from './view-product/view-product.component';
+import { CartComponent } from './cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { ViewProductComponent } from './view-product/view-product.component';
     CategoryDialogComponent,
     CategoryPageComponent,
     SpinnerComponent,
-    ViewProductComponent
+    ViewProductComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,

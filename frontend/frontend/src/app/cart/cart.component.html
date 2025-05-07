@@ -1,0 +1,209 @@
+<!-- checkout.component.html -->
+<div class="min-h-screen bg-gray-100 py-8">
+    <div class="container mx-auto px-4">
+      <!-- Header -->
+      <div class="mb-8">
+        <h1 class="text-3xl font-bold text-gray-800">Checkout</h1>
+        <p class="text-gray-600">Complete your order</p>
+      </div>
+  
+      <!-- Main content -->
+      <div class="flex flex-col lg:flex-row gap-8">
+        <!-- Left column - Customer details -->
+        <div class="w-full lg:w-2/3 space-y-6">
+          <!-- Shipping information -->
+          <div class="bg-white p-6 rounded-lg shadow">
+            <h2 class="text-xl font-semibold mb-4">Shipping Information</h2>
+            <form class="space-y-4">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label for="firstName" class="block text-sm font-medium text-gray-700 mb-1">First Name</label>
+                  <input type="text" id="firstName" name="firstName" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500" required>
+                </div>
+                <div>
+                  <label for="lastName" class="block text-sm font-medium text-gray-700 mb-1">Last Name</label>
+                  <input type="text" id="lastName" name="lastName" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500" required>
+                </div>
+              </div>
+              <div>
+                <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500" required>
+              </div>
+              <div>
+                <label for="address" class="block text-sm font-medium text-gray-700 mb-1">Street Address</label>
+                <input type="text" id="address" name="address" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500" required>
+              </div>
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div>
+                  <label for="city" class="block text-sm font-medium text-gray-700 mb-1">City</label>
+                  <input type="text" id="city" name="city" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500" required>
+                </div>
+                <div>
+                  <label for="state" class="block text-sm font-medium text-gray-700 mb-1">State</label>
+                  <select id="state" name="state" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500" required>
+                    <option value="" disabled selected>Select State</option>
+                    <option value="AL">Alabama</option>
+                    <option value="AK">Alaska</option>
+                    <!-- Add more states as needed -->
+                  </select>
+                </div>
+                <div>
+                  <label for="zipCode" class="block text-sm font-medium text-gray-700 mb-1">ZIP Code</label>
+                  <input type="text" id="zipCode" name="zipCode" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500" required>
+                </div>
+              </div>
+              <div>
+                <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
+                <input type="tel" id="phone" name="phone" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500" required>
+              </div>
+            </form>
+          </div>
+  
+          <!-- Payment information -->
+          <div class="bg-white p-6 rounded-lg shadow">
+            <h2 class="text-xl font-semibold mb-4">Payment Method</h2>
+            <form class="space-y-4">
+              <!-- Payment options -->
+              <div class="space-y-3">
+                <div class="flex items-center">
+                  <input id="credit-card" name="payment-method" type="radio" class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300" checked>
+                  <label for="credit-card" class="ml-3 block text-sm font-medium text-gray-700">Credit Card</label>
+                </div>
+                <div class="flex items-center">
+                  <input id="paypal" name="payment-method" type="radio" class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300">
+                  <label for="paypal" class="ml-3 block text-sm font-medium text-gray-700">PayPal</label>
+                </div>
+              </div>
+  
+              <!-- Credit card details -->
+              <div class="credit-card-form">
+                <div>
+                  <label for="cardName" class="block text-sm font-medium text-gray-700 mb-1">Name on Card</label>
+                  <input type="text" id="cardName" name="cardName" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500" required>
+                </div>
+                <div class="mt-3">
+                  <label for="cardNumber" class="block text-sm font-medium text-gray-700 mb-1">Card Number</label>
+                  <input type="text" id="cardNumber" name="cardNumber" placeholder="XXXX XXXX XXXX XXXX" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500" required>
+                </div>
+                <div class="grid grid-cols-2 gap-4 mt-3">
+                  <div>
+                    <label for="expiryDate" class="block text-sm font-medium text-gray-700 mb-1">Expiry Date</label>
+                    <input type="text" id="expiryDate" name="expiryDate" placeholder="MM/YY" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500" required>
+                  </div>
+                  <div>
+                    <label for="cvv" class="block text-sm font-medium text-gray-700 mb-1">CVV</label>
+                    <input type="text" id="cvv" name="cvv" placeholder="XXX" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500" required>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+  
+          <!-- Shipping Method -->
+          <div class="bg-white p-6 rounded-lg shadow">
+            <h2 class="text-xl font-semibold mb-4">Shipping Method</h2>
+            <div class="space-y-3">
+              <div class="flex items-center p-3 border border-gray-200 rounded-md">
+                <input id="standard" name="shipping-method" type="radio" class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300" checked>
+                <label for="standard" class="ml-3 flex flex-col">
+                  <span class="block text-sm font-medium text-gray-700">Standard Shipping</span>
+                  <span class="block text-sm text-gray-500">3-5 business days</span>
+                </label>
+                <span class="ml-auto font-medium">$5.99</span>
+              </div>
+              <div class="flex items-center p-3 border border-gray-200 rounded-md">
+                <input id="express" name="shipping-method" type="radio" class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300">
+                <label for="express" class="ml-3 flex flex-col">
+                  <span class="block text-sm font-medium text-gray-700">Express Shipping</span>
+                  <span class="block text-sm text-gray-500">1-2 business days</span>
+                </label>
+                <span class="ml-auto font-medium">$12.99</span>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Right column - Order summary -->
+        <div class="w-full lg:w-1/3">
+          <div class="bg-white p-6 rounded-lg shadow sticky top-8">
+            <h2 class="text-xl font-semibold mb-4">Order Summary</h2>
+            
+            <!-- Order items -->
+<!-- Order items -->
+<div class="border-b border-gray-200 pb-4 mb-4">
+    <div class="flow-root">
+      <ul class="divide-y divide-gray-200">
+        <li *ngFor="let item of items" class="py-3 flex">
+          <div class="h-16 w-16 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
+            <!-- Use the first image if available, otherwise use a placeholder -->
+            <img *ngIf="item.product?.images && item.product.images.length > 0" 
+                 [src]="item.product.images[0].image_url" 
+                 alt="Product image" 
+                 class="h-full w-full object-cover object-center">
+            <img *ngIf="!item.product?.images || item.product.images.length === 0"
+                 src="https://via.placeholder.com/100"
+                 alt="Product image"
+                 class="h-full w-full object-cover object-center">
+          </div>
+          <div class="ml-4 flex flex-1 flex-col">
+            <div>
+              <div class="flex justify-between text-base font-medium text-gray-900">
+                <h3>{{item.product.name}}</h3>
+                <p class="ml-4">R{{item.product.price * item.quantity}}</p>
+              </div>
+              <p class="mt-1 text-sm text-gray-500">{{item.product.description}}</p>
+            </div>
+            <div class="flex flex-1 items-end justify-between text-sm">
+              <p class="text-gray-500">Qty {{item.quantity}}</p>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+            
+            <!-- Order totals -->
+            <div class="space-y-2">
+              <div class="flex justify-between text-sm">
+                <p class="text-gray-500">Subtotal</p>
+                <p class="font-medium text-gray-900">$85.00</p>
+              </div>
+              <div class="flex justify-between text-sm">
+                <p class="text-gray-500">Shipping</p>
+                <p class="font-medium text-gray-900">$5.99</p>
+              </div>
+              <div class="flex justify-between text-sm">
+                <p class="text-gray-500">Tax</p>
+                <p class="font-medium text-gray-900">$8.50</p>
+              </div>
+              <div class="flex justify-between font-medium text-lg border-t border-gray-200 pt-2 mt-2">
+                <p>Total</p>
+                <p>$99.49</p>
+              </div>
+            </div>
+            
+            <!-- Promo code -->
+            <div class="mt-4">
+              <label for="promo" class="block text-sm font-medium text-gray-700 mb-1">Promo Code</label>
+              <div class="flex">
+                <input type="text" id="promo" name="promo" class="flex-1 px-4 py-2 border border-gray-300 rounded-l-md focus:ring-indigo-500 focus:border-indigo-500">
+                <button type="button" class="bg-gray-200 px-4 py-2 border border-gray-300 rounded-r-md text-sm font-medium text-gray-700 hover:bg-gray-300">Apply</button>
+              </div>
+            </div>
+            
+            <!-- Place order button -->
+            <div class="mt-6">
+              <button type="submit" class="w-full bg-indigo-600 py-3 px-4 rounded-md text-white font-medium hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                Place Order
+              </button>
+            </div>
+            
+            <!-- Terms -->
+            <p class="mt-4 text-xs text-gray-500 text-center">
+              By placing your order, you agree to our <a href="#" class="text-indigo-600 hover:text-indigo-500">Terms & Conditions</a> and <a href="#" class="text-indigo-600 hover:text-indigo-500">Privacy Policy</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
